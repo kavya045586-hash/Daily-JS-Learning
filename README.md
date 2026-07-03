@@ -1,7 +1,7 @@
-# 🌐 Daily JavaScript & React Learning (Kannada)
+
 
 This repository contains my **daily practice code** while learning JavaScript and React.  
-I follow tutorials from **Chai aur Code** and then explain the concepts in **Kannada** on my YouTube channel.  
+
 All practice files are organized step‑by‑step for easy learning.
 
 ---
