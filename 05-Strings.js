@@ -8,9 +8,12 @@ const b = "world";
 
 // Template literals
 console.log(`a value is ${a} and b value is ${b}`); // ``````
+console.log(a);
+console.log(b);
 
 // Concatenation
 console.log(a.concat(b));
+console.log(a + " " + b); //hello world
 
 // Accessing characters & length
 console.log(a[0]);        // h
@@ -84,6 +87,4 @@ console.log(text.search(/Spain/)); // 12 (index)
 // 3. slice() supports negative indices.
 // 4. trim() removes spaces only at start & end.
 // 5. split() converts string → array.
-// 6. startsWith/endsWith are great for checks.
-// 7. padStart/padEnd useful for formatting numbers.
-// 8. match/search work with regex.
+
