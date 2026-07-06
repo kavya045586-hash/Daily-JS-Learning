@@ -62,7 +62,7 @@ console.log(highScorers.map(s => s.name)); // ["Kavya", "Anu"]
 // ============================================
 // syntax: array.reduce((accumulator, currentValue) => {...}, initialValue)
 
-
+//1)
 let total = 
 numbers.reduce(
     function(acc, num) {                //sum of number
@@ -74,7 +74,7 @@ console.log(total); // 150
 
 
 
-                                                          //max number
+//2)                                                           //max number
 let maxNumber = numbers.reduce(function(acc, num) {
     return num > acc ? num : acc;
 }, numbers[0]);
@@ -84,8 +84,6 @@ console.log(maxNumber); // 50
 
 
 // ALL CONCEPTS TOGETHER 
-
-
 // filter, map, reduce chain
 let passed = students.filter(function(student) {
     return student.marks >= 50;
@@ -108,3 +106,29 @@ console.log("Original students:", students);
 //Mutating methods: sort(), splice(), push(), pop(), shift(), unshift() → change the original array.
 
 //Non-mutating methods: map(), filter(), reduce(), slice(), concat() → return new arrays/values, original stays safe.
+
+
+
+numbers.sort(function(a, b) {
+    return a - b; // ascending order
+});
+console.log(numbers); // [10, 20, 40, 50]
+
+let fruits = ["apple", "banana", "cherry"];
+fruits.splice(1, 1, "orange"); 
+// remove 1 item at index 1, insert "orange"
+console.log(fruits); // ["apple", "orange", "cherry"]
+
+
+fruits.shift();
+console.log(fruits); // ["banana", "cherry"]
+
+fruits.pop();
+console.log(fruits); // ["apple", "banana"]
+
+
+fruits.push("cherry");
+console.log(fruits); // ["apple", "banana", "cherry"]
+
+fruits.unshift("apple");
+console.log(fruits); // ["apple", "banana", "cherry"]
