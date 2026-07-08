@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amazing Image Gallery</title>
+  <style>
+    body {
+      background-color: #222;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+    h2 {
+      margin-top: 20px;
+    }
+    #images {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+    }
+    #images li {
+      border: 2px solid #444;
+      padding: 5px;
+      border-radius: 8px;
+      background-color: #333;
+    }
+    #images img {
+      width: 200px;
+      border-radius: 6px;
+      transition: transform 0.3s ease;
+    }
+    #images img:hover {
+      transform: scale(1.05);
+    }
+    a {
+      display: inline-block;
+      margin-top: 20px;
+      color: aliceblue;
+      text-decoration: none;
+      font-size: 18px;
+      padding: 8px 12px;
+      background-color: #555;
+      border-radius: 6px;
+      transition: background-color 0.3s ease;
+    }
+    a:hover {
+      background-color: #777;
+    }
+  </style>
+</head>
+<body>
+  <h2>Amazing Image Gallery</h2>
+  <div>
+    <ul id="images">
+      <li><img id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="Photoshop artwork"></li>
+      <li><img id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="Japan scenery"></li>
+      <li><img id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="River view"></li>
+      <li><img id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="Owl"></li>       
+      <li><img id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="Prayer moment"></li>
+    </ul>
+  </div>
+
+  <a href="https://google.com" target="_blank" rel="noopener noreferrer" id="google">Google</a>
+
+  <script>
+    // Example 1: Listening for a click on the "prayer" image
+    document.getElementById('prayer').addEventListener('click', function(e) {
+      console.log(e.target.parentNode); // Logs the <li> element containing the image
+      console.log(e.target);            // Logs the actual <img> element clicked
+      
+      // If you uncomment the following lines, the parent <li> will be removed
+      // const a = e.target.parentNode;
+      // a.remove();
+    }, false);
+
+    // Example 2: Listening for a click on the entire <ul> list of images
+    document.getElementById('images').addEventListener('click', function() {
+      alert('images are clicked'); 
+      // This runs whenever any image inside <ul> is clicked,
+      // unless stopPropagation() is used in the child handler.
+    }, false);
+
+    // Example 3: Listening for a click specifically on the "owl" image
+    document.getElementById('owl').addEventListener('click', function(e) {
+      alert('owl'); // Shows alert specifically for owl
+      e.stopPropagation(); 
+      // stopPropagation prevents the event from bubbling up to parent elements.
+      // Without this, clicking the owl would trigger both "owl" and "images are clicked".
+    }, false);
+
+    /*
+      Explanation of bubbling and capturing:
+      - Bubbling phase (default, third argument = false):
+        The event starts at the target element (child) and moves upward to its parents.
+        Example: Clicking the owl → owl handler runs → then images handler runs.
+      
+      - Capturing phase (third argument = true):
+        The event is handled from the top down (document → parent → child).
+        Example: Clicking the owl → images handler runs first → then owl handler runs.
+      
+      - Bubbling is more commonly used because it lets you detect the exact element clicked first,
+        then handle parent logic afterward.
+      
+      - stopPropagation() is used when you want only the child’s event to run
+        and prevent the parent’s handler from executing.
+    */
+
+    // Example 4: Listening for a click on the Google link
+    document.getElementById('google').addEventListener('click', function(e) {
+        e.preventDefault();   // Prevents the link from opening Google
+        e.stopPropagation();  // Prevents the event from bubbling to parent elements
+        alert("google clicked"); // Custom alert instead of opening the link
+    }, false);
+  </script>
+</body>
+</html>
