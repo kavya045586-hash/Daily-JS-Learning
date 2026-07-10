@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>ASYNC PROJECT</title>
+</head>
+<body>
+    <h1>LEARNING JAVASCRIPT</h1>
+    <button id="stop">STOP</button>
+</body>
+<script>
+    // Example: log a message after 2 seconds
+    setTimeout(function() {
+        console.log("hitesh");
+    }, 2000);
+
+    const b = document.querySelector("h1");
+    b.innerHTML = "Learning should be consistent";
+
+    console.log("hello world");
+
+    // Correct usage: pass a function to setTimeout
+    const c = function() {
+        b.innerHTML = "Updated after 2 seconds!";
+    };
+
+    // Store the timeout ID so it can be cleared later
+    const d = setTimeout(c, 2000);
+
+    // Select the STOP button
+    const stopBtn = document.querySelector('#stop');
+
+    /* 
+       If you click the STOP button before the update occurs,
+       the heading will NOT change after 2 seconds.
+       If you click STOP after the update has already happened,
+       nothing will change (because the timeout has already executed).
+    */
+    stopBtn.addEventListener('click', function() {
+        clearTimeout(d);
+        console.log("Timeout cleared — update stopped.");
+    });
+</script>
+</html>
