@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>ASYNC PROJECT</title>
+</head>
+<body>
+    <h1>LEARNING JAVASCRIPT</h1>
+    <button id="stop">STOP</button>
+    <button id="start">START</button>
+</body>
+<script>
+    // Function that runs every 2 seconds
+    const q = function(e) {
+        console.log(`${e} hitesh`);
+    };
+
+    // Start the interval and store its ID
+    const k = setInterval(q, 2000, "hi"); 
+    // Note: you can pass parameters to the function like this
+
+    // Select the STOP button
+    const stopBtn = document.querySelector('#stop');
+
+    // Stop the interval when the button is clicked
+    stopBtn.addEventListener('click', function() {
+        clearInterval(k);
+        console.log("Interval stopped!");
+    });
+</script>
+</html>
+
