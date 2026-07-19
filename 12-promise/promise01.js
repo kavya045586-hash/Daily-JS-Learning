@@ -67,3 +67,32 @@ D.then(function (user) {
 }).catch(function (error) {
     console.log(error); // "Rejected"
 });
+
+
+
+
+// Step 1: Create a promise
+const promiseFive = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    let success = true; // change to false to test rejection
+    if (success) {
+      resolve("✅ Promise resolved successfully!");
+    } else {
+      reject("❌ ERROR: JS went wrong");
+    }
+  }, 1000);
+});
+
+// Step 2: Consume the promise with async/await
+async function consumePromiseFive() {
+  try {
+    console.log("Waiting for promise to settle...");
+    const response = await promiseFive; // pauses until promise settles promise output is stored here
+    console.log("Result:", response);
+  } catch (error) {
+    console.log("Caught error:", error);
+  }
+}
+
+consumePromiseFive();
+console.log("This line runs immediately after calling the function.");
