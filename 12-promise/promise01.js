@@ -37,12 +37,12 @@ a.then(function () {
 const C = new Promise(function (resolve, reject) {
     setTimeout(function () {
         console.log("TASK 3");
-        resolve({ username: "kavya" }); // passing data to .then
+        resolve({ username: "kavya",age:"20"}); // passing data to .then
     }, 1000);
 });
 
 C.then(function (user) {
-    console.log(user); // { username: "kavya" }
+    console.log(user.age); 
 });
 
 // ===============================
@@ -55,7 +55,7 @@ const D = new Promise(function (resolve, reject) {
         console.log("TASK 4");
         const a = true;
         if (!a) {
-            resolve({ username: "kavya" });
+            resolve({ username: "kavya" ,age:"20"});
         } else {
             reject("Rejected"); // reject should pass a message or error
         }
