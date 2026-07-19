@@ -34,3 +34,46 @@ class Calculator {
 const calc = new Calculator();
 console.log(calc.add(2, 3));       // 5
 console.log(calc.add(2, 3, 4));    // 9
+
+
+// ===============================
+// Ways to Avoid Overriding in JavaScript
+// ===============================
+
+// Parent class
+class User {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+
+  greet() {
+    console.log(`Hello from User: ${this.name}, Age: ${this.age}`);
+  }
+}
+
+// 1. Use Different Method Names
+class Admin1 extends User {
+  showRole() {
+    console.log("I am an Admin");
+  }
+}
+
+const admin1 = new Admin1("Kavya", 20);
+admin1.greet();    // still calls User's greet()
+admin1.showRole(); // new method in Admin1
+
+
+// 2. Call Parent Method Explicitly with super
+class Admin2 extends User {
+  greet() {
+    super.greet(); // call User's greet()
+    console.log("Extra message from Admin2");
+  }
+}
+
+const admin2 = new Admin2("Arjun", 25);
+admin2.greet();
+// Output:
+// Hello from User: Arjun, Age: 25
+// Extra message from Admin2
