@@ -1,0 +1,59 @@
+1. Define OOP and its four pillars.
+Answer:  
+Object-Oriented Programming (OOP) is a programming paradigm based on the concept of “objects” that contain data and methods. The four pillars of OOP are:
+
+Encapsulation → Wrapping data and methods together, restricting direct access.
+
+Abstraction → Hiding implementation details, exposing only essential features.
+
+Inheritance → Deriving new classes from existing ones for code reuse.
+
+Polymorphism → Same method name, different implementations depending on context.
+
+2. Difference between Encapsulation vs Abstraction.
+Answer:
+
+Encapsulation → Focuses on how data is hidden and controlled (private fields, getters/setters).
+
+Abstraction → Focuses on what functionality is exposed while hiding internal logic (abstract methods, APIs).
+👉 Encapsulation is about data hiding, abstraction is about implementation hiding.
+
+3. Explain method overriding vs method overloading.
+Answer:
+
+Method Overriding (Runtime Polymorphism): A subclass provides a new implementation of a method defined in its parent class.
+
+Method Overloading (Compile-time Polymorphism): Same method name with different parameter lists. JavaScript doesn’t support true overloading but can simulate it using default parameters or argument checks.
+
+4. What is the difference between class and object?
+Answer:
+
+Class: A blueprint or template that defines properties and methods.
+
+Object: An instance of a class created at runtime, representing a real entity.
+
+5. How does inheritance improve code reusability?
+Answer:  
+Inheritance allows a child class to reuse properties and methods of a parent class, reducing code duplication. It enables hierarchical classification and makes systems easier to extend.
+
+6. What is polymorphism with an example?
+Answer:  
+Polymorphism means “many forms” — the same method behaves differently depending on the object.
+Example:
+
+javascript
+class Animal { speak() { console.log("Animal sound"); } }
+class Dog extends Animal { speak() { console.log("Bark"); } }
+class Cat extends Animal { speak() { console.log("Meow"); } }
+Calling speak() on Dog prints “Bark”, while on Cat prints “Meow”.
+
+7. Why is encapsulation important for security?
+Answer:  
+Encapsulation hides sensitive data from direct access. By using private fields and controlled methods (getters/setters), it prevents unauthorized modification and ensures data integrity.
+
+8. Explain real-world examples of OOP.
+Answer:
+
+Car → Vehicle: A car inherits general vehicle properties (wheels, engine) but overrides behavior (fuel type, speed).
+
+BankAccount → Account: Encapsulation hides balance, abstraction exposes deposit/withdraw methods, inheritance allows different account types (Savings, Current), and polymorphism lets each account type calculate interest differently.
