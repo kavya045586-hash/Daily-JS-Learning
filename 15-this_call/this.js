@@ -7,7 +7,7 @@ But when you have a function inside another function, the inner one often loses 
 
 In non‑strict mode, both outer and inner are sharing the global object as this.
 
-In strict mode, inner loses the context and this becomes undefined.
+In strict mode "'use strict'" , inner loses the context and this becomes undefined.
 */
 
 
